@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños, mi niña</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      z-index: 2;
+      position: relative;
+    }
+    .book {
+      width: 90%;
+      max-width: 600px;
+      height: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      animation: fadeIn 2s ease;
+    }
+    .book img {
+      width: 100%;
+      display: block;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .music-btn {
+      margin-top: 20px;
+      background-color: #ff80ab;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .music-btn:hover {
+      background-color: #f06292;
+    }
+
+    @keyframes starryNight {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 24px;
+      animation: floatHearts 8s infinite ease-in;
+      color: #ff4081;
+      z-index: 999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cielo estrellado animado */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 1.5s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.2; transform: scale(1); }
+    }
+
+    /* Crear estrellas en posiciones aleatorias */
+    .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-duration: 1.8s; }
+    .star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 70%; animation-duration: 2.1s; }
+    .star:nth-child(3) { width: 1.5px; height: 1.5px; top: 60%; left: 50%; animation-duration: 1.5s; }
+    .star:nth-child(4) { width: 2.5px; height: 2.5px; top: 80%; left: 10%; animation-duration: 2.3s; }
+    .star:nth-child(5) { width: 3px; height: 3px; top: 20%; left: 80%; animation-duration: 2.0s; }
+    .star:nth-child(6) { width: 2px; height: 2px; top: 50%; left: 30%; animation-duration: 1.9s; }
+    /* Agrega más estrellas aquí si lo deseas */
+
+  </style>
+</head>
+<body>
+  <div class="stars">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <!-- Puedes agregar más divs con la clase "star" para más estrellas -->
+  </div>
+
+  <div class="container">
+    <div class="book">
+      <a href="https://drive.google.com/file/d/1UsSqcUhiT4IFJ3TRS8KoAfgWhwDIQZyR/view" target="_blank">
+        <img src="https://drive.google.com/uc?export=view&id=1UsSqcUhiT4IFJ3TRS8KoAfgWhwDIQZyR" alt="Toca aquí">
+      </a>
+    </div>
+    <button class="music-btn" onclick="playMusic()">Tu canción</button>
+  </div>
+
+  <script>
+    function playMusic() {
+      window.open("https://youtu.be/4UtuRcx8T94?si=JyuCcibE9znFwsuo", "_blank");
+    }
+
+    // Corazones flotando
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.innerText = "💕";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }, 1000);
+  </script>
+</body>
+</html>
